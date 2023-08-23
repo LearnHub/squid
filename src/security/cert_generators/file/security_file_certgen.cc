@@ -323,6 +323,8 @@ int main(int argc, char *argv[])
             }
             Ssl::CertificateDb::Check(db_path, max_db_size, fs_block_size);
         }
+		
+		int reqCounter = 0;
 
         // Initialize SSL subsystem
         SQUID_OPENSSL_init_ssl();
@@ -347,6 +349,7 @@ int main(int argc, char *argv[])
                 throw std::runtime_error("Unknown request code: \"" + request_message.getCode() + "\".");
             }
             std::cout.flush();
+			reqCounter++;
         }
     } catch (std::runtime_error & error) {
         std::cerr << argv[0] << ": " << error.what() << std::endl;
