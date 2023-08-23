@@ -1,0 +1,10 @@
+*.o
+*.lo
+Makefile
+Makefile.in
+.deps
+.libs
+*.la
+*.8
+*.lang
+.dirstamp
