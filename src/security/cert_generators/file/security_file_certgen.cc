@@ -149,7 +149,7 @@ static void usage()
     std::stringstream request_string_size_stream;
     request_string_size_stream << request_string.length();
     std::string help_string =
-        "usage: security_file_certgen -hv -s directory -M size -b fs_block_size\n"
+        "usage (Avantis custom build): av_security_file_certgen -hv -s directory -M size -b fs_block_size\n"
         "\t-h                   Help\n"
         "\t-v                   Version\n"
         "\t-s directory         Directory path of SSL storage database.\n"
@@ -279,7 +279,7 @@ int main(int argc, char *argv[])
                 }
                 break;
             case 'v':
-                std::cout << "security_file_certgen version " << VERSION << std::endl;
+                std::cout << "security_file_certgen version " << VERSION << " (Avantis custom build)" << std::endl;
                 exit(0);
                 break;
             case 'c':
