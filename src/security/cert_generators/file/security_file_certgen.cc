@@ -13,6 +13,7 @@
 
 #include <cstring>
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -333,6 +334,11 @@ int main(int argc, char *argv[])
             char request[HELPER_INPUT_BUFFER];
             Ssl::CrtdMessage request_message(Ssl::CrtdMessage::REQUEST);
             Ssl::CrtdMessage::ParseResult parse_result = Ssl::CrtdMessage::INCOMPLETE;
+			
+			std::stringstream tmpFile;
+			tmpFile << "/tmp/certgen_" << getpid() << "_" << reqCounter << ".dmp";
+			std::ofstream fTmp;
+			fTmp.open(tmpFile.str(), std::ios::app | std::ios::binary);
 
             while (parse_result == Ssl::CrtdMessage::INCOMPLETE) {
                 if (fgets(request, HELPER_INPUT_BUFFER, stdin) == NULL)
